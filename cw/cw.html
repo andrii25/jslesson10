@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<style>
+
+    .container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .container img {
+        border-radius: 50px;
+        width: 50%;
+        height:60vh;
+    }
+    .containerBtn{
+        display: flex;
+        justify-content: center;
+        margin: 20px;
+    }
+    .containerBtn button{
+        width: 180px;
+        height: 60px;
+        cursor: pointer;
+        background: transparent;
+        border: 1px solid #91C9FF;
+        outline: none;
+        transition: 1s ease-in-out;
+        margin-left: 10px;
+    }
+    .containerBtn button:hover{
+        transition: 1s ease-in-out;
+        background: #4F95DA;
+    }
+
+
+
+</style>
+<body>
+<script>
+    // - створити 2 форми  по 2 інпути в кожній. ствоирити кнопку при кліку на яку считується та виводиться на консоль інформація з цих 2х форм.
+    //     Кнопка повинна лежати за межами форм (Щоб уникнути  перезавантаження сторінки)
+    // Доступ до інпутів через Forms API. Отже дайте формі та інпутам всі необхідні атрибути.
+    // let divOne = document.createElement('div')
+    // divOne.innerText = 'Бокс 1'
+    // document.body.appendChild(divOne)
+    //
+    //
+    // let divTwo = document.createElement('div')
+    // divTwo.innerText = 'Бокс 2'
+    // document.body.appendChild(divTwo)
+    //
+    //
+    // let formOne = document.createElement('form')
+    // formOne.setAttribute('name', 'formOne')
+    // divOne.appendChild(formOne)
+    //
+    // let formTwo = document.createElement('form')
+    // formTwo.setAttribute('name', 'formTwo')
+    // divTwo.appendChild(formTwo)
+    //
+    // let inputOne = document.createElement('input')
+    // inputOne.setAttribute('name', 'inputOne')
+    //
+    // let inputTwo = document.createElement('input')
+    // inputTwo.setAttribute('name', 'inputTwo')
+    //
+    // let inputThree = document.createElement('input')
+    // inputThree.setAttribute('name', 'inputThree')
+    //
+    // let inputFour = document.createElement('input')
+    // inputFour.setAttribute('name', 'inputFour')
+    //
+    // let button = document.createElement('button')
+    // button.innerText = 'Кнопка!'
+    // document.body.appendChild(button)
+    //
+    // formOne.appendChild(inputOne, inputTwo)
+    // formTwo.appendChild(inputThree, inputFour)
+    //
+    // button.addEventListener('click', function () {
+    //     console.log(document.forms.formOne.inputOne.value)
+    //     console.log(document.forms.formOne.inputTwo.value)
+    //     console.log(document.forms.formTwo.inputThree.value)
+    //     console.log(document.forms.formTwo.inputFour.value)
+    // })
+
+    // - Створити 3 инпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.
+    //     При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
+    // (Додатковачастина для завдання)
+
+    // let inputOne = document.createElement('input');
+    // let inputTwo = document.createElement('input');
+    // let inputThree = document.createElement('input');
+    // let button = document.createElement('button');
+    //
+    // button.innerText = 'Створити таблицю';
+    // document.body.append(inputOne, inputTwo, inputThree, button);
+    //
+    // button.addEventListener('click', function (){
+    //     let row = inputOne.value
+    //     let cell = inputTwo.value
+    //     let txt = inputThree.value
+    //
+    //     function generation (row, cell, inner) {
+    //         let table = document.createElement('table');
+    //         let divTable = document.createElement('div');
+    //
+    //         table.style.border = '1px solid red'
+    //         divTable.appendChild(table)
+    //         document.body.appendChild(divTable)
+    //
+    //         for (let i = 0; i < row.length; i++) {
+    //             let row = document.createElement('tr')
+    //             row.style.border = '1px solid blue'
+    //             for (let j = 0; j < cell; j++) {
+    //                 let cell = document.createElement('td')
+    //                 cell.style.border = '1px solid green'
+    //                 cell.innerText = `@{inner}`;
+    //                 table.appendChild(row)
+    //                 row.appendChild(cell)
+    //
+    //             }
+    //         }
+    //     }
+    //     generation(row, cell, txt)
+    //
+    // })
+
+
+    // - Сворити масив не цензцрних слів.
+    //     Сворити інпут текстового типу.
+    //     Якщо людина вводить слово і воно міститься в масиві не цензурних слів
+    // кинути алерт з попередженням.
+    //     Перевірку робити при натисканні на кнопку
+
+
+    // - Сворити масив не цензцрних слів.
+    //     Сворити інпут текстового типу.
+    //     Потрібно перевіряти чи не містить ціле речення в собі погані слова.
+    //     Кинути алерт з попередженням у випадку якщо містить.
+    //     Перевірку робити при натисканні на кнопку
+
+    let masivs = ["лайно", "паскудник", "шмарина"]
+    let input = document.createElement('input')
+    let button = document.createElement('button')
+    button.innerText = 'Перевірка'
+    document.body.append(input,button)
+
+    button.addEventListener('click', function () {
+        let put = input.value
+
+        for (let masiv of masivs) {
+                    if (masiv === put) {
+                        alert('Сам такий');
+                        input.value = '';
+                        return;
+                    }
+                }
+        if(put) {
+            alert('Ти молодець')
+            input.value = '';
+        }
+    })
+
+
+</script>
+
+</body>
+</html>
